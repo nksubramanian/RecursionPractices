@@ -23,5 +23,29 @@ namespace RecursionPractices
             permutations = permutations.Concat(perm).ToList();
             return permutations;
         }
+
+        public static bool ValidateDerangement(List<string> characters, string derangement)
+        {
+            return (derangement.Count() > characters.Count) && 
+                derangement.Select((c,i) => characters[i] != c.ToString()).Aggregate((acc, i)=>acc && i);
+        }
+
+        public static List<string> GenerateDerangements(List<string> characters, List<string> perm = default)
+        {
+            perm ??= new List<string> { string.Empty };
+            if(characters.Count ==0 )
+                return perm;
+            List<string> permutations = new List<string>();
+            for (int i = 0; i < characters.Count; i++)
+            {
+                List<string> generatedPerm = perm.Select(str => str + characters[i]).ToList();
+                List<string> remainingElements = characters.Where((item, index) => index != i).ToList();
+                var permutation = GenerateDerangements(remainingElements, generatedPerm);
+                permutations = permutations.Concat(permutation).ToList();
+            }
+            return permutations;
+        }
+
+
     }
 }

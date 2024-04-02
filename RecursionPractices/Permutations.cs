@@ -8,6 +8,29 @@ namespace RecursionPractices
 {
     public static class Permutations
     {
+
+        public static List<string> GenerateNPermutations(List<string> characters, int n)
+        {
+            if(n == 1)
+                return characters;  
+            List<string> permutations = new List<string>();
+            for(int i = 0; i < characters.Count; i++)
+            {
+                string x = characters[i].ToString();
+                var remainingElements = characters.Where((value, index)=>index!=i).ToList();
+                var perms = GenerateNPermutations(remainingElements, n - 1);
+                foreach(string perm in perms)
+                {
+                    permutations.Add(x+perm);
+                }
+
+            }
+            return permutations;    
+
+        }
+
+
+
         public static List<string> GeneratePermutations(List<string> characters)
         {
             List<string> permutations = new List<string>();

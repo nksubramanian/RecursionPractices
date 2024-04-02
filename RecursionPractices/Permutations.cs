@@ -15,8 +15,8 @@ namespace RecursionPractices
             for (int i = 0; i < characters.Count; i++)
             {
                 string node = characters[i].ToString();
-                List<string> remainingElements = characters.Where((item, index) => index != i).ToList();
-                var permsfornode = GeneratePermutations(remainingElements);
+                var remaningElements = characters.Where((value, index)=>index!=i).ToList();
+                var permsfornode = GeneratePermutations(remaningElements);
                 permutations = permsfornode.Select(perm => node+perm).Concat(permutations).ToList();
             }
             return permutations;

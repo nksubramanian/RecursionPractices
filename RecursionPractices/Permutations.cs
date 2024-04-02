@@ -11,8 +11,6 @@ namespace RecursionPractices
         public static List<string> GeneratePermutations(List<string> characters, List<string> perm = default)
         {
             perm ??= new List<string> { string.Empty };
-            if (characters.Count == 0)
-                return perm;
             List<string> permutations = new List<string>();
             for (int i = 0; i < characters.Count; i++)
             {

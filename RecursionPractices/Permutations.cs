@@ -18,19 +18,18 @@ namespace RecursionPractices
             if (characters.Count == 0)
                 return perm;
 
-            List<(List<string>, List<string>)> x = new List<(List<string>, List<string>)>();
-            List<string> dupPerm = new List<string>(perm);
+            List<(List<string>, List<string>)> breadthRepo = new List<(List<string>, List<string>)>();
             for (int i = 0; i < characters.Count; i++)
             {
-                List<string> generatedPerm = dupPerm.Select(str => str + characters[i]).ToList();
+                List<string> generatedPerm = perm.Select(str => str + characters[i]).ToList();
                 List<string> remainingElements = characters.Where((item, index) => index != i).ToList();
-                x.Add((remainingElements, generatedPerm));
+                breadthRepo.Add((remainingElements, generatedPerm));
 
             }
             List<string> permutation = new List<string>();
-            foreach (var tuple in x)
+            foreach (var node in breadthRepo)
             {
-                var g = GeneratePerm(tuple.Item1, tuple.Item2);
+                var g = GeneratePerm(node.Item1, node.Item2);
                 permutation = permutation.Concat(g).ToList();
             }
             permutation = permutation.Concat(perm).ToList();

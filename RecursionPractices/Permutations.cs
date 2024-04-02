@@ -18,7 +18,6 @@ namespace RecursionPractices
             if (characters.Count == 0)
                 return perm;
             List<string> permutations = new List<string>();
-            List<(List<string>, List<string>)> breadthRepo = new List<(List<string>, List<string>)>();
             for (int i = 0; i < characters.Count; i++)
             {
                 List<string> generatedPerm = perm.Select(str => str + characters[i]).ToList();

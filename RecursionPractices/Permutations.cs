@@ -8,19 +8,19 @@ namespace RecursionPractices
 {
     public static class Permutations
     {
-        public static List<string> GeneratePermutations(List<string> characters, List<string> perm = default)
+        public static List<string> GeneratePermutations(List<string> characters)
         {
-            perm ??= new List<string> { string.Empty };
             List<string> permutations = new List<string>();
+            permutations.Add(string.Empty);
             for (int i = 0; i < characters.Count; i++)
             {
-                List<string> generatedPerm = perm.Select(str => str + characters[i]).ToList();
+                string node = characters[i].ToString();
                 List<string> remainingElements = characters.Where((item, index) => index != i).ToList();
-                var permutation = GeneratePermutations(remainingElements, generatedPerm);
-                permutations = permutations.Concat(permutation).ToList();
+                var permsfornode = GeneratePermutations(remainingElements);
+                var x = permsfornode.Select(perm => node+perm).ToList();
+                permutations = permutations.Concat(x).ToList();
 
             }
-            permutations = permutations.Concat(perm).ToList();
             return permutations;
         }
 

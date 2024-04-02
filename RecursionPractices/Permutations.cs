@@ -8,23 +8,23 @@ namespace RecursionPractices
 {
     public static class Permutations
     {
-        public static List<string> GeneratePerm(List<string> alphabets, List<string> perm = default)
+        public static List<string> GeneratePerm(List<string> characters, List<string> perm = default)
         {
             if (perm is null)
             {
                 perm = new List<string> { string.Empty };
             }
 
-            if (alphabets.Count == 0)
+            if (characters.Count == 0)
                 return perm;
 
             List<(List<string>, List<string>)> x = new List<(List<string>, List<string>)>();
             List<string> dupPerm = new List<string>(perm);
-            for (int i = 0; i < alphabets.Count; i++)
+            for (int i = 0; i < characters.Count; i++)
             {
-                List<string> modifiedPerm = dupPerm.Select(str => str + alphabets[i]).ToList();
-                List<string> removedAlpha = alphabets.Where((item, index) => index != i).ToList();
-                x.Add((removedAlpha, modifiedPerm));
+                List<string> generatedPerm = dupPerm.Select(str => str + characters[i]).ToList();
+                List<string> remainingElements = characters.Where((item, index) => index != i).ToList();
+                x.Add((remainingElements, generatedPerm));
 
             }
             List<string> permutation = new List<string>();

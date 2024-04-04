@@ -30,6 +30,22 @@ namespace RecursionPractices
         }
 
 
+        public static Func<(bool, T)> GetIterator<T>(List<T> numbers)
+        {
+            int count = 0; 
+            List<T> ints = numbers;
+            return () => {
+                if (count >= numbers.Count)
+                    return (false, default);
+                else
+                {
+                    return (true, ints[count++]);
+
+                }
+
+            };
+        }
+
 
         public static List<string> GeneratePermutations(List<string> characters)
         {

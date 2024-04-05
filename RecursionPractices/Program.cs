@@ -78,8 +78,17 @@ var e = stack.pop();
 
 List<int> numbers = new List<int> { 1, 2, 3, 4 };
 var nos = StackMethods.NextGreaterElement(numbers);
-int j = 0;
+QueueList queue = new QueueList();
+queue.Enqueue(1);
+queue.Enqueue(2);
+queue.Enqueue(3);
 
+QueueMethods.reverse(queue);    
+
+int f = queue.Dequeue();
+int f1 = queue.Dequeue();
+int g1 = queue.Dequeue();
+int hhh = 0;
 
 
 

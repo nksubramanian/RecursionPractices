@@ -75,6 +75,9 @@ var b = stack.pop();
 var c = stack.pop();
 var d = stack.pop();
 var e = stack.pop();
+
+List<int> numbers = new List<int> { 1, 2, 3, 4 };
+var nos = StackMethods.NextGreaterElement(numbers);
 int j = 0;
 
 

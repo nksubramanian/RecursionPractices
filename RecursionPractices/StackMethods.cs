@@ -47,5 +47,41 @@ namespace RecursionPractices
 
         }
 
+        public static List<int> NextGreaterElement(List<int> numbers)
+        {
+            List<int> nextGreaterElements = new List<int>();
+            StackList orderedStack = new StackList(new List<int>());
+            for (int i = numbers.Count-1; i >=0 ; i--) 
+            {
+                if(orderedStack.isEmpty())
+                {
+                    orderedStack.push(numbers[i]);
+                    nextGreaterElements.Insert(0,-1);
+                }
+                else
+                {
+                    while(true)
+                    {
+                        if(orderedStack.isEmpty())
+                        {
+                            nextGreaterElements.Insert(0, -1);
+                            break;
+                        }
+                        int popValue = orderedStack.pop();
+                        if (popValue > numbers[i])
+                        {
+                            nextGreaterElements.Insert(0, popValue);
+                            orderedStack.push(popValue);
+                            orderedStack.push(numbers[i]);
+                            break;
+                        }
+                    }
+                }
+                
+            
+            }
+            return nextGreaterElements;
+        }
+
     }
 }

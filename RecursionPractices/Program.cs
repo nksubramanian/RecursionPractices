@@ -83,8 +83,8 @@ queue.Enqueue(1);
 queue.Enqueue(2);
 queue.Enqueue(3);
 
-QueueMethods.reverse(queue);    
-
+QueueMethods.reverse(queue);
+string name  = QueueMethods.PrintElements(queue);
 int f = queue.Dequeue();
 int f1 = queue.Dequeue();
 int g1 = queue.Dequeue();

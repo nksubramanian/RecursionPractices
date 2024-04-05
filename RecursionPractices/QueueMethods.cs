@@ -19,5 +19,19 @@ namespace RecursionPractices
 
 
         }
+
+
+        public static string PrintElements(QueueList q)
+        {
+            if (q.IsEmpty())
+                return string.Empty;
+            else
+            {
+                return q.Dequeue().ToString() + " " + PrintElements(q);
+            }
+
+
+
+        }
     }
 }

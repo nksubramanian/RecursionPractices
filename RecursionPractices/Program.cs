@@ -2,6 +2,13 @@
 using RecursionPractices;
 
 
+
+static void Reverse(StackList stack)
+{
+
+
+}
+
 Console.WriteLine("Hello, World!");
 List<string> characters = new List<string> { "a", "b", "c", "d", "e"};
 var permutations = Permutations.GeneratePermutations(characters);
@@ -55,8 +62,26 @@ while(true)
 
 }
 
+List<int> nums = new List<int>();
 
-int y = 9;
+StackList stack = new StackList(nums);
+stack.push(1);
+stack.push(2);
+stack.push(49);
+stack.push(50);
+StackMethods.SortInsert(stack, 3);
+var a = stack.pop();
+var b = stack.pop();
+var c = stack.pop();
+var d = stack.pop();
+var e = stack.pop();
+int j = 0;
+
+
+
+
+
+
 
 
 

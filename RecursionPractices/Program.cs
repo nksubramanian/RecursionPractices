@@ -13,6 +13,7 @@ static void Reverse(StackList stack)
 }
 List<(int, int)> exPairs = new List<(int, int)>();
 var gh = QueueMethods.GetExchangePairs(10, ref exPairs, 0);
+var h = QueueMethods.GetExchangePairs(10,0);
 Console.WriteLine("Hello, World!");
 List<string> characters = new List<string> { "a", "b", "c", "d", "e"};
 var permutations = Permutations.GeneratePermutations(characters);
@@ -24,7 +25,7 @@ List<int> numbers2 = Enumerable.Range(4, 10).ToList();
 Func<(bool, int)> numbers1Iter = Permutations.GetIterator(numbers1);
 Func<(bool, int)> numbers2Iter = Permutations.GetIterator(numbers2);
 
-int h = QueueMethods.GetFactorial(3);
+int hsafd = QueueMethods.GetFactorial(3);
 var number1 = numbers1Iter();
 var number2 = numbers2Iter();
 List<int> sortedList = new List<int>();

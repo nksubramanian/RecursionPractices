@@ -98,6 +98,20 @@ namespace RecursionPractices
 
         }
 
+        public static List<(int, int)> GetExchangePairs(int count, int sPoint = 0)
+        {
+            List<(int, int)> values = new List<(int, int)> ();
+            if(count-1>sPoint)
+            {
+                values.Add((sPoint, count-1));
+                List<(int, int)> subExPairs = GetExchangePairs(count - 1, sPoint + 1);
+                return values.Concat(subExPairs).ToList();
+            }
+            return values;
+
+
+        }
+
 
         public static List<(int, int)> GetExchangePairs(int count,ref List<(int, int)> exPair, int sPoint = 0)
         {

@@ -2,14 +2,17 @@
 using RecursionPractices;
 using System.Linq;
 
-
+int count = 3;
+var indices = Enumerable.Range(0, count);
+var exchangePairs = indices.Select(i=>(i, indices.Last()-i)).Take(count/2).ToList();
 
 static void Reverse(StackList stack)
 {
 
 
 }
-
+List<(int, int)> exPairs = new List<(int, int)>();
+var gh = QueueMethods.GetExchangePairs(10, ref exPairs, 0);
 Console.WriteLine("Hello, World!");
 List<string> characters = new List<string> { "a", "b", "c", "d", "e"};
 var permutations = Permutations.GeneratePermutations(characters);

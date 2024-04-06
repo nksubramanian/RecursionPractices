@@ -99,6 +99,18 @@ namespace RecursionPractices
         }
 
 
+        public static List<(int, int)> GetExchangePairs(int count,ref List<(int, int)> exPair, int sPoint = 0)
+        {
+            if(sPoint<count-1)
+            {
+                exPair.Add((sPoint, count - 1));
+                GetExchangePairs(count - 1, ref exPair, sPoint+1);
+                
+            }
+            return exPair;
+
+        }
+
         public static int GetFactorial(int n, int factorial = 1)
         {
             if (n == 1)

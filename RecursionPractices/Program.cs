@@ -86,6 +86,7 @@ queue.Enqueue(3);
 
 QueueMethods.PrintList(numbers);
 
+var gssfa = QueueMethods.getNNumberSum(10);
 
 Dictionary<string, List<string>> children = new Dictionary<string, List<string>>();
 children.Add("a", new List<string> { "b"});

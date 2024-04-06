@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,6 +81,19 @@ namespace RecursionPractices
                
             }
             return paths;
+
+        }
+
+        public static int getNNumberSum(int n, int sum = 0)
+        {
+            if(n==0)
+                return sum;
+            else
+            {
+                sum += n;
+                n = n - 1;
+                return getNNumberSum(n, sum); 
+            }
 
         }
 

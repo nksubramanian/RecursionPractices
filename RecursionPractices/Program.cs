@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using RecursionPractices;
+using System.Linq;
 
 
 
@@ -83,6 +84,36 @@ queue.Enqueue(1);
 queue.Enqueue(2);
 queue.Enqueue(3);
 
+
+
+
+Dictionary<string, List<string>> children = new Dictionary<string, List<string>>();
+children.Add("a", new List<string> { "b"});
+children.Add("b", new List<string> {"c", "d"});
+children.Add("c", new List<string>());
+children.Add("d", new List<string> { "e", "f"});
+children.Add("e", new List<string>());
+children.Add("f", new List<string>());
+
+
+Dictionary<int, List<int>> numchildren = new Dictionary<int, List<int>>();
+numchildren.Add(1, new List<int> { 2 });
+numchildren.Add(2, new List<int> { 3, 4 });
+numchildren.Add(3, new List<int>());
+numchildren.Add(4, new List<int> { 5, 6 });
+numchildren.Add(5, new List<int>());
+numchildren.Add(6, new List<int>());
+
+
+
+
+
+
+
+
+
+var gg = QueueMethods.traverseDepth("a", children);
+var hh = QueueMethods.traverseBreadth(1, numchildren);
 QueueMethods.reverse(queue);
 string name  = QueueMethods.PrintElements(queue);
 int f = queue.Dequeue();

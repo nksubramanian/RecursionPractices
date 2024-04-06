@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -95,6 +96,17 @@ namespace RecursionPractices
                 return getNNumberSum(n, sum); 
             }
 
+        }
+
+
+        public static int GetFactorial(int n, int factorial = 1)
+        {
+            if (n == 1)
+                return factorial;
+            else
+            {
+                return GetFactorial(n - 1, factorial * n);
+            }
         }
 
         public static void PrintList(List<int> numbers)

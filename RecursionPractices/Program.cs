@@ -21,6 +21,7 @@ List<int> numbers2 = Enumerable.Range(4, 10).ToList();
 Func<(bool, int)> numbers1Iter = Permutations.GetIterator(numbers1);
 Func<(bool, int)> numbers2Iter = Permutations.GetIterator(numbers2);
 
+int h = QueueMethods.GetFactorial(3);
 var number1 = numbers1Iter();
 var number2 = numbers2Iter();
 List<int> sortedList = new List<int>();

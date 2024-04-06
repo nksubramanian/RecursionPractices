@@ -84,7 +84,7 @@ queue.Enqueue(1);
 queue.Enqueue(2);
 queue.Enqueue(3);
 
-
+QueueMethods.PrintList(numbers);
 
 
 Dictionary<string, List<string>> children = new Dictionary<string, List<string>>();

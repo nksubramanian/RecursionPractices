@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,6 +81,22 @@ namespace RecursionPractices
             }
             return paths;
 
+        }
+
+        public static void PrintList(List<int> numbers)
+        {
+            void print(List<int> numbers, int index=0)
+            {
+                if(numbers.Count<=index)
+                {
+                    return;
+                }
+                Console.WriteLine(numbers[index]);
+                print(numbers, index + 1);
+                return;
+            }
+
+            print(numbers);
         }
 
 

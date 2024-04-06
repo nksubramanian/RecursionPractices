@@ -11,6 +11,17 @@ static void Reverse(StackList stack)
 
 
 }
+
+(int, int) acc = (1, 1);
+var g = Enumerable.Range(0, 5).Aggregate(acc, (acc, x) => {
+    var temp = acc;
+    acc.Item1 = temp.Item2;
+    acc.Item2 = temp.Item2+temp.Item1;
+    return acc;
+}).ToTuple();
+
+List<string> strings = new List<string> { "a", "b", "c", "d" };
+var hh = QueueMethods.GenerateSubStrings(strings);
 List<(int, int)> exPairs = new List<(int, int)>();
 var gh = QueueMethods.GetExchangePairs(10, ref exPairs, 0);
 var h = QueueMethods.GetExchangePairs(10,0);
@@ -119,7 +130,7 @@ numchildren.Add(6, new List<int>());
 
 
 var gg = QueueMethods.traverseDepth("a", children);
-var hh = QueueMethods.traverseBreadth(1, numchildren);
+var shh = QueueMethods.traverseBreadth(1, numchildren);
 QueueMethods.reverse(queue);
 string name  = QueueMethods.PrintElements(queue);
 int f = queue.Dequeue();

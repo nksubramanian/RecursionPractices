@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -109,6 +110,21 @@ namespace RecursionPractices
             }
             return values;
 
+
+        }
+
+        public static List<string> GenerateSubStrings(List<string> characters)
+        {
+            if(characters.Count==0)
+                return new List<string> { string.Empty };
+            else
+            {
+                var remainingCharacters = characters.Skip(1).ToList();
+                List<string> substrings = GenerateSubStrings(remainingCharacters);
+                return substrings.Concat(substrings.Select(substring => characters[0] + substring)).ToList();
+
+
+            }
 
         }
 

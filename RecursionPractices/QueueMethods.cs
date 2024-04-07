@@ -183,6 +183,41 @@ namespace RecursionPractices
             }
         }
 
+        public static List<List<int>> GenerateSubSeq(List<int> numbers, int sum)
+        {
+
+            if (sum == 0)
+            {
+                List<List<int>> result = new List<List<int>>();
+                result.Add(new List<int>());
+                return result;
+            }
+            else
+            {
+                var res = new List<List<int>>();
+                if (numbers.Count > 0)
+                {
+                    var remainingNos = numbers.Skip(1).ToList();
+
+                    if (sum>= numbers[0])
+                    {
+                        var x = sum - numbers[0];
+                        var lists = GenerateSubSeq(remainingNos, x);
+                        foreach ( var list in lists)
+                        {
+                            res.Add(list.Append(numbers[0]).ToList());
+                        }
+                        var listss = GenerateSubSeq(remainingNos, sum);
+                        return res.Concat(listss).ToList();
+                    }
+                    return res;
+
+                }
+
+            }
+            return new List<List<int>>();
+        }
+
 
 
         public static int GetFactorial(int n, int factorial = 1)

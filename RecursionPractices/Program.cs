@@ -6,11 +6,8 @@ int count = 3;
 var indices = Enumerable.Range(0, count);
 var exchangePairs = indices.Select(i=>(i, indices.Last()-i)).Take(count/2).ToList();
 
-static void Reverse(StackList stack)
-{
-
-
-}
+List<List<int>> result = new List<List<int>>();
+result.Add(new List<int>());
 
 (int, int) acc = (1, 1);
 var g = Enumerable.Range(0, 5).Aggregate(acc, (acc, x) => {
@@ -25,6 +22,7 @@ List<string> accu = new List<string>();
 List<int> numsx = new List<int> { 2, 3, 5, 6, 8, 10 };
 List<List<int>> accumulator = new List<List<int>>();
 QueueMethods.GenerateSubSeq(numsx, 10, ref accumulator);
+var hhhh = QueueMethods.GenerateSubSeq(numsx, 10);
 QueueMethods.GenerateSubStrings(strings, ref accu);
 
 List<(int, int)> exPairs = new List<(int, int)>();

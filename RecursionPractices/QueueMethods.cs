@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -152,8 +153,44 @@ namespace RecursionPractices
 
         }
 
-    
-    public static int GetFactorial(int n, int factorial = 1)
+        public static void GenerateSubSeq(List<int> numbers, int sum,  ref List<List<int>> acc, List<int> seq = null)
+        {
+
+            if (seq == null)
+            {
+                seq = new List<int>();
+            }
+            if (sum == 0)
+            {
+                acc.Add(seq);
+                return;
+            }
+            else
+            {
+                if(numbers.Count>0 && sum > 0)
+                {
+                    var remainingNos = numbers.Skip(1).ToList();
+
+                    GenerateSubSeq(remainingNos, sum, ref acc, new List<int>(seq));
+                    if (numbers[0] <= sum)
+                    {
+                        List<int> sequences = new List<int>(seq);
+                        sequences.Add(numbers[0]);
+                        GenerateSubSeq(remainingNos, sum - numbers[0], ref acc, sequences);
+                    }
+
+                }
+
+
+
+            }
+
+
+        }
+
+
+
+        public static int GetFactorial(int n, int factorial = 1)
         {
             if (n == 1)
                 return factorial;

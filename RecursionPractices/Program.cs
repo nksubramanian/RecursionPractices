@@ -22,6 +22,9 @@ var g = Enumerable.Range(0, 5).Aggregate(acc, (acc, x) => {
 
 List<string> strings = new List<string> { "a", "b", "c"};
 List<string> accu = new List<string>();
+List<int> numsx = new List<int> { 2, 3, 5, 6, 8, 10 };
+List<List<int>> accumulator = new List<List<int>>();
+QueueMethods.GenerateSubSeq(numsx, 10, ref accumulator);
 QueueMethods.GenerateSubStrings(strings, ref accu);
 
 List<(int, int)> exPairs = new List<(int, int)>();

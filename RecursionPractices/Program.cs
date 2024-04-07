@@ -20,9 +20,12 @@ var g = Enumerable.Range(0, 5).Aggregate(acc, (acc, x) => {
     return acc;
 }).ToTuple();
 
-List<string> strings = new List<string> { "a", "b", "c", "d" };
-var hh = QueueMethods.GenerateSubStrings(strings);
+List<string> strings = new List<string> { "a", "b", "c"};
+List<string> accu = new List<string>();
+QueueMethods.GenerateSubStrings(strings, ref accu);
+
 List<(int, int)> exPairs = new List<(int, int)>();
+var hh = QueueMethods.GenerateSubStrings(strings);
 var gh = QueueMethods.GetExchangePairs(10, ref exPairs, 0);
 var h = QueueMethods.GetExchangePairs(10,0);
 Console.WriteLine("Hello, World!");

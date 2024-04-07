@@ -155,7 +155,6 @@ namespace RecursionPractices
 
         public static void GenerateSubSeq(List<int> numbers, int sum,  ref List<List<int>> acc, List<int> seq = null)
         {
-
             if (seq == null)
             {
                 seq = new List<int>();
@@ -181,11 +180,7 @@ namespace RecursionPractices
 
                 }
 
-
-
             }
-
-
         }
 
 

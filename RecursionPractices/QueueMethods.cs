@@ -142,17 +142,13 @@ namespace RecursionPractices
         }
         public static void GenerateSubStrings(List<string> characters, ref List<string> acc)
         {
-            if(characters.Count>0)
+            if (characters.Count > 0)
             {
                 acc = acc.Select(x => x + characters[0]).Concat(acc).Append(characters[0]).ToList();
                 var remainingCharacters = characters.Skip(1).ToList();
                 GenerateSubStrings(remainingCharacters, ref acc);
 
             }
-            return;
-
-
-            
 
         }
 

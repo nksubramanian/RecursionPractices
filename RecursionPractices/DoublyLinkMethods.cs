@@ -28,5 +28,15 @@ namespace RecursionPractices
 
         }
 
+        public static DoublyLink RemoveAtStart(ref DoublyLink doublyLink)
+        {
+            DoublyLink temp = doublyLink;
+            DoublyLink second = doublyLink.next;
+            second.prev = null;
+            temp.next = null;
+            doublyLink = second;
+            return temp;
+        }
+
     }
 }

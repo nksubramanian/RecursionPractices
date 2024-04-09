@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,20 @@ namespace RecursionPractices
 {
     public static class ProxyMain
     {
+
+        public static void linkmain()
+        {
+            Link link = new Link(2);
+            link.InsertAtEnd(3);
+            link.InsertAtEnd(4);
+            link.InsertAtEnd(5);
+            LinkListMethods.InsertAtStart(ref link, 1);
+            link.Print();
+            Console.WriteLine("******************************************");
+
+            LinkListMethods.Reverse(ref link);
+            link.Print();
+        }
 
 
         public static void main()

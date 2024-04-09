@@ -8,7 +8,8 @@ DoublyLinkMethods.InsertAtStart(ref node, new DoublyLink(1));
 //var g = DoublyLinkMethods.RemoveAtStart(ref node);
 DoublyLinkMethods.Reverse(ref node);
 node.Print();
-
+Console.WriteLine("___________________________________________________");
+ProxyMain.linkmain();
 
 
 

@@ -12,15 +12,18 @@ namespace RecursionPractices
 
         public static void linkmain()
         {
-            Link link = new Link(2);
-            link.InsertAtEnd(3);
-            link.InsertAtEnd(4);
-            link.InsertAtEnd(5);
-            LinkListMethods.InsertAtStart(ref link, 1);
+            Link link = new Link(10);
+            link.InsertAtEnd(20);
+            link.InsertAtEnd(30);
+            link.InsertAtEnd(40);
+            link.InsertAtEnd(50);
+            link.InsertAtEnd(60);
+            //LinkListMethods.InsertAtStart(ref link, 1);
             link.Print();
             Console.WriteLine("******************************************");
 
-            LinkListMethods.Reverse(ref link);
+            //LinkListMethods.Reverse(ref link);
+            LinkListMethods.RotateLinkList(ref link, 4);
             link.Print();
         }
 

@@ -20,6 +20,26 @@ namespace RecursionPractices
             }
         }
 
+
+        public static void RotateLinkList(ref Link link, int count)
+        {
+            if (count == 0)
+                return;
+            else
+            {
+                do
+                {
+                    Link x = RemoveFirst(ref link);
+                    InsertAtEnd(ref link, x);
+                    count--;
+
+
+                } while (count!=0);
+
+            }
+        }
+
+
         public static void InsertAtStart(ref Link link, int val)
         {
             var  a = new Link(val);
@@ -65,6 +85,16 @@ namespace RecursionPractices
             newStart._next = link;
             link = newStart;
 
+        }
+
+        public static void InsertAtEnd(ref Link link, Link newEnd)
+        {
+            Link ptr = link;
+            while(ptr._next!=null)
+            {
+                ptr = ptr._next;
+            }
+            ptr._next = newEnd;
         }
 
         public static Link RemoveFirst(ref Link link)

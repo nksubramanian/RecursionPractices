@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,6 +59,50 @@ namespace RecursionPractices
             return link.GetElement((int)Math.Ceiling(halfCount));
 
         }
+
+        public static void InsertAtStart(ref Link link, Link newStart)
+        {
+            newStart._next = link;
+            link = newStart;
+
+        }
+
+        public static Link RemoveFirst(ref Link link)
+        {
+            Link first = link;
+            Link newHead = first._next;
+            first._next = null;
+            link = newHead;
+            return first;
+
+        }
+
+
+        public static void Reverse(ref Link link)
+        {
+            Link res = null;
+            while (link!=null)
+            {
+                var x = RemoveFirst(ref link);
+                InsertAtStart(ref res, x);
+            }
+            link = res;
+        }
+
+        public static Link dd(this Link link)
+        {
+            Link first = link;
+            while (first._next!=null)
+            {
+                Link second = first._next;
+                Link third = second._next;
+                second._next = first;
+                first._next = third;
+            }
+            return first;
+        }
+
+
 
 
         public static void PrinttheCount(this Link link,ref int backcount, ref int count)

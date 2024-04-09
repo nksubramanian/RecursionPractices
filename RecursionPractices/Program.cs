@@ -7,7 +7,11 @@ link.InsertAtEnd(3);
 link.InsertAtEnd(4);
 link.InsertAtEnd(5);
 LinkListMethods.InsertAtStart(ref link,1);
+link.Print();
+Console.WriteLine("******************************************");
 
+LinkListMethods.Reverse(ref link);
+link.Print();
 
 
 

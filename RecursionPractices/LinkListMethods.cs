@@ -37,6 +37,28 @@ namespace RecursionPractices
 
         }
 
+        public static Link GetElement(this Link link, int num)
+        {
+            if(num==1)
+                return link;
+            Link ptr = link;
+            do
+            {
+                ptr = ptr._next;
+            } while (--num > 1);
+
+            return ptr;
+        }
+
+        public static Link GetMiddleElement(this Link link)
+        {
+            int count = link.GetCount();
+            double halfCount = (double)count / 2;
+
+            return link.GetElement((int)Math.Ceiling(halfCount));
+
+        }
+
 
         public static void PrinttheCount(this Link link,ref int backcount, ref int count)
         {

@@ -5,7 +5,9 @@ using System.Linq;
 int count = 3;
 var indices = Enumerable.Range(0, count);
 var exchangePairs = indices.Select(i=>(i, indices.Last()-i)).Take(count/2).ToList();
-
+var nos = new List<int> { 2,3,6,7};
+List<List<int>> result1 = new List<List<int>>();
+SumSubsequences.GetSubSequences(nos, 7, ref result1);
 List<List<int>> result = new List<List<int>>();
 result.Add(new List<int>());
 
@@ -98,7 +100,7 @@ var d = stack.pop();
 var e = stack.pop();
 
 List<int> numbers = new List<int> { 1, 2, 3, 4 };
-var nos = StackMethods.NextGreaterElement(numbers);
+var noss = StackMethods.NextGreaterElement(numbers);
 QueueList queue = new QueueList();
 queue.Enqueue(1);
 queue.Enqueue(2);

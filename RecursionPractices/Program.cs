@@ -6,7 +6,9 @@ Link link = new Link(1);
 link.InsertAtEnd(3);
 link.InsertAtEnd(3);
 LinkListMethods.InsertAtStart(ref link,0);
-link.PrinttheCount();
+int backcount = 0;
+int count = 1;
+link.PrinttheCount(ref backcount, ref count);
 link.Print();
 
 int u = 0;

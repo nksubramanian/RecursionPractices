@@ -38,15 +38,20 @@ namespace RecursionPractices
         }
 
 
-        public static void PrinttheCount(this Link link, int count = 1)
+        public static void PrinttheCount(this Link link,ref int backcount, ref int count)
         {
             if (link._next != null)
             {
-                link._next.PrinttheCount(++count);
+                count++;
+                link._next.PrinttheCount(ref backcount, ref count);
+                backcount--;
+                Console.WriteLine(backcount + " " + count);
+
             }
             else
             {
-                Console.WriteLine(count);
+                backcount = count;
+                Console.WriteLine(backcount + " " + count);
             }
 
         }

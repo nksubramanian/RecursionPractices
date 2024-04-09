@@ -9,6 +9,7 @@ LinkListMethods.InsertAtStart(ref link,0);
 int backcount = 0;
 int count = 1;
 link.PrinttheCount(ref backcount, ref count);
+int j = link.GetCount();
 link.Print();
 
 int u = 0;

@@ -56,5 +56,19 @@ namespace RecursionPractices
 
         }
 
+
+        public static int GetCount(this Link link)
+        {
+            int count = 0;
+            Link ptr = link;
+            while(ptr!=null)
+            {
+                count++;
+                ptr = ptr._next;
+            }
+            return count;
+            
+        }
+
     }
 }

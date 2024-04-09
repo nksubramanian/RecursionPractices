@@ -13,7 +13,10 @@ namespace RecursionPractices
         public static void InsertAtStart(ref DoublyLink doublyLink, DoublyLink node)
         {
             node.next = doublyLink;
-            doublyLink.prev = node;
+            if(doublyLink!=null)
+            {
+                doublyLink.prev = node;
+            }
             doublyLink = node;
         }
 
@@ -32,10 +35,26 @@ namespace RecursionPractices
         {
             DoublyLink temp = doublyLink;
             DoublyLink second = doublyLink.next;
-            second.prev = null;
+            if (second!=null)
+            {
+                second.prev = null;
+            }
             temp.next = null;
             doublyLink = second;
             return temp;
+        }
+        public static void Reverse(ref DoublyLink doublyLink)
+        {
+            DoublyLink ptr = doublyLink;
+            DoublyLink firstElement = null;
+            while(ptr !=null)
+            {
+                DoublyLink x = RemoveAtStart(ref ptr);
+                InsertAtStart(ref firstElement, x);
+
+
+            }
+            doublyLink = firstElement;
         }
 
     }

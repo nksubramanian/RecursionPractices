@@ -8,7 +8,7 @@ namespace RecursionPractices
 {
     public class Link
     {
-        private Link _next;
+        public Link _next;
         public int _value;
 
         public Link(int value)

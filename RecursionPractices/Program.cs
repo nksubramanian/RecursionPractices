@@ -27,13 +27,12 @@ static (int, int) GetIndex(List<int> numbers, int no, int start, int end)
         else
             return GetIndex(numbers, no, start, newIndex);
     }
-
-
 }
 
-List<int> numbers = new List<int> { 1, 2,3,5,6,7};
-var h = GetIndex(numbers, 4, 0, numbers.Count-1);
-int i = 0;
+List<int> numbers = new List<int> { 1, 2, 3, 1, 4, 5, 2, 3, 6 };
+
+var go = Enumerable.Range(0, 7).Select(i => numbers.Skip(i).Take(3).Max()).ToList();
+int u = 0;
 
 
 

@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using RecursionPractices;
+using System;
 using System.Globalization;
 using System.Linq;
 
@@ -29,11 +30,28 @@ static (int, int) GetIndex(List<int> numbers, int no, int start, int end)
     }
 }
 
-List<int> numbers = new List<int> { 1, 2, 3, 1, 4, 5, 2, 3, 6 };
+List<int> numbers = new List<int> { 10, 5, 2, 7, 1, 9 };
+var h = Enumerable.Range(0, numbers.Count - 2+1).Select(i => numbers.Take(i).Concat(numbers.Skip(i+2)).Min()).Min();
 
-var go = Enumerable.Range(0, 7).Select(i => numbers.Skip(i).Take(3).Max()).ToList();
-int u = 0;
+List<int> list1s = new List<int> { 1, 2, 3 };
+List<string> list2s = new List<string> { "A", "B", "C" };
+
+var orderedPairs = list1s.SelectMany(num => list2s, (num, str) => new { Number = num, Letter = str }).ToList();
+
+List<int> list1 = new List<int> { 1, 2, 3 };
+List<int> list2 = new List<int> { 4, 5, 6 };
+
+var orderedPairss = list1.Select(x => list2.Select(y => (x, y)).ToList()).ToList();
 
 
 
+
+var validIndices = Enumerable.Range(0, numbers.Count)
+                                   .Select(start => Enumerable.Range(start, numbers.Count - start).Select(end => (start, end)))
+                                   .SelectMany(x=>x);
+
+var subArrays = validIndices.Select(index => numbers.Skip(index.Item1).Take(index.Item2 - index.Item1 + 1).ToList())
+                .Where(subArray => subArray.Sum() == 15).Max(i=>i.Count);
+
+int kk = 0;
 

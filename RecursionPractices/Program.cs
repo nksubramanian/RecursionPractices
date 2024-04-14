@@ -13,11 +13,7 @@ for(int i = 0; i<=nums.Count()-K;++i)
 {
     if(i==0)
     {
-        for (int j = 0; j <= K - 1; j++)
-        {
-            rec.Add((nums[i + j], i + j));
-        }
-
+        rec = Enumerable.Range(0, K).Select(i => (nums[i],i)).ToList();
     }
     else
     {

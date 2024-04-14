@@ -5,18 +5,22 @@ using System.Globalization;
 using System.Linq;
 
 
-List<int> costs = new List<int> { 1, 12, 5, 111, 200, 1000, 10 };
-List<(List<int>, int)> comb = new List<(List<int>, int)>();
-foreach(var cost in costs)
-{
-    comb = comb.Select(x => (x.Item1.Append(cost).ToList(), x.Item2 + cost)).Where(x=>x.Item2<=50).Concat(comb).ToList();
-    if(cost<=50)
+
+
+var jj = Enumerable.Range(1, 7).ToList();
+List<int> costs = new List<int> { 1, 0, 1, 1, 1, 0, 0 };
+var hhhhhh = costs.Count(i => i == 1);
+var subArrays = Enumerable.Range(0, costs.Count)
+    .SelectMany(skip => Enumerable.Range(1, costs.Count - skip).Select(take => (skip, take)))
+    .Select(index => { 
+    
+        return (index.Item1, index.Item2, costs.Skip(index.Item1).Take(index.Item2).ToList());
+
+    }).Where(x =>
     {
-        comb.Add((new List<int> { cost }, cost));
-    }
+        return x.Item3.Count(y => y == 0) == x.Item3.Count(y => y == 1);
+    }).ToList();
 
+//var g = subArrays.Where(subArray=> subArray.Where(i => i == 1).Count() == subArray.Where(i => i == 0).Count()).ToList();
 
-}
-var g = comb.OrderByDescending(x=>x.Item1.Count()).FirstOrDefault().ToTuple();
-int fff = 0;
-
+var hhh = 0;
